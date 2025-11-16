@@ -1,0 +1,37 @@
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero");
+  }
+  return a / b;
+}
+
+module.exports = {
+  add,
+  subtract,
+  multiply,
+  divide,
+};
+const math = require("./math");
+
+console.log("2 + 2 =", math.add(2, 2));
+console.log("5 - 3 =", math.subtract(5, 3));
+console.log("4 * 5 =", math.multiply(4, 5));
+console.log("10 / 2 =", math.divide(10, 2));
+
+try {
+  console.log("10 / 0 =", math.divide(10, 0));
+} catch (error) {
+  console.error(error.message);
+}
